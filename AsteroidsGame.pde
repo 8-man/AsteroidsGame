@@ -1,23 +1,35 @@
 Spaceship deku = new Spaceship();
 Stars[] todo = new Stars[100];
+Asteroid[] dabi = new Asteroid[5];
 public void setup() 
 {
   size(400, 400);
-  for (int i = 0; i < 100; i++)
+  background(0);
+  for (int i = 0; i < todo.length; i++)
   {
     todo[i] = new Stars(); 
   }
+  for (int i = 0; i< dabi.length; i++)
+  {
+    dabi[i] = new Asteroid();
+  }
+  
 }
 public void draw() 
 {
   background(0);
-  deku.show();
-  deku.move();
   for (int i = 0; i < 100; i++)
   {
     todo[i].show();
     
   }
+  for (int i = 0; i < 5; i++)
+  {
+    dabi[i].show();
+    dabi[i].move();
+  }
+  deku.show();
+  deku.move();
 }
 public void keyTyped()
 {
@@ -29,7 +41,7 @@ public void keyTyped()
     deku.setX((int)(Math.random()*400));
     deku.setY((int)(Math.random()*400));
   }
-  if (key == 'd')
+    if (key == 'd')
   {
     deku.turn(10);
   }
@@ -42,6 +54,3 @@ public void keyTyped()
     deku.accelerate(.5);
   }
 }
-
-
-  
