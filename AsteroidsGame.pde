@@ -60,4 +60,8 @@ public void keyTyped()
   {
     deku.accelerate(.5);
   }
+  if (key == 's')
+  {
+    deku.accelerate(-.5);
+  }
 }
