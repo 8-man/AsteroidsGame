@@ -1,6 +1,7 @@
 Spaceship deku = new Spaceship();
 Stars[] todo = new Stars[100];
-Asteroid[] dabi = new Asteroid[5];
+ArrayList <Asteroid> dabi = new ArrayList<Asteroid>();
+
 public void setup() 
 {
   size(400, 400);
@@ -9,11 +10,10 @@ public void setup()
   {
     todo[i] = new Stars(); 
   }
-  for (int i = 0; i< dabi.length; i++)
+  for (int i = 0; i< 10 ; i++)
   {
-    dabi[i] = new Asteroid();
+    dabi.add(i, new Asteroid());
   }
-  
 }
 public void draw() 
 {
@@ -23,10 +23,17 @@ public void draw()
     todo[i].show();
     
   }
-  for (int i = 0; i < 5; i++)
+  for (int i = 0; i < dabi.size(); i++)
   {
-    dabi[i].show();
-    dabi[i].move();
+    dabi.get(i).show();
+    dabi.get(i).move();
+  }
+  for (int i = 0; i < dabi.size(); i++)
+  {
+    float d = dist(deku.getX(), deku.getY(), dabi.get(i).getX(), dabi.get(i).getY());
+    if( d < 10)
+    dabi.remove(i);
+    
   }
   deku.show();
   deku.move();
